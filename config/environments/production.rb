@@ -76,4 +76,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  # heroku app todo
+  config.action_mailer.default_url_options = { host: 'brock-donovan-todo.herokuapp.com'}
+
 end

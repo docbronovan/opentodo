@@ -5,3 +5,51 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'faker'
+
+#create users
+2.times do
+ user = User.new(
+   name:     Faker::Name.name,
+   email:    Faker::Internet.email,
+   password: 'helloworld'
+ )
+ user.skip_confirmation!
+ user.save!
+end
+
+brock = User.new(
+  name:     'brock',
+  email: 'brockdonovan@gmail.com',
+  password: 'helloworld'
+)
+brock.skip_confirmation!
+brock.save!
+
+users = User.all
+
+# Create Lists
+5.times do
+ List.create!(
+  title: Faker::Hacker.noun,
+  user_id: users.sample.id
+ )
+end
+
+lists = List.all
+
+# Create items
+20.times do
+ Item.create!(
+   name:  Faker::Commerce.product_name,
+   user_id: users.sample.id,
+   list_id: lists.sample.id
+ )
+end
+items = Item.all
+
+puts "Seed finished"
+puts "#{User.count} users created"
+puts "#{List.count} lists created"
+puts "#{Item.count} Items created"

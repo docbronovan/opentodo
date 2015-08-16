@@ -1,4 +1,28 @@
 Rails.application.routes.draw do
+  get 'user/index'
+
+  get 'user/show'
+
+  get 'user/new'
+
+  get 'user/edit'
+
+  get 'item/index'
+
+  get 'item/show'
+
+  get 'item/new'
+
+  get 'item/edit'
+
+  get 'list/index'
+
+  get 'list/show'
+
+  get 'list/new'
+
+  get 'list/edit'
+
   devise_for :users
   get 'welcome/index'
   get 'welcome/about'

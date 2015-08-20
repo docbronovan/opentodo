@@ -11,7 +11,7 @@ require 'faker'
 #create users
 2.times do
  user = User.new(
-   name:     Faker::Name.name,
+   full_name:     Faker::Name.name,
    email:    Faker::Internet.email,
    password: 'helloworld'
  )
@@ -20,7 +20,7 @@ require 'faker'
 end
 
 brock = User.new(
-  name:     'brock',
+  full_name:     'brock',
   email: 'brockdonovan@gmail.com',
   password: 'helloworld'
 )

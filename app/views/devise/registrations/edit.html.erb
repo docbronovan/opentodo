@@ -36,23 +36,12 @@
     <h3>Edit personal information</h3>
     <%= form_for(current_user) do |f| %>
       <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control', placeholder: "Enter name", autofocus: true %>
+        <%= f.label :full_name %>
+        <%= f.text_field :full_name, class: 'form-control', placeholder: "Enter name", autofocus: true %>
       </div>
       <div class="form-group">
         <%= f.submit "Update", class: 'btn btn-success' %>
       </div>
-    <% end %>
-    
-    <% if current_user.role == 'premium' %>
-      <h3>Downgrade to standard</h3>
-      <%= form_for current_user do |f| %>
-        <%= f.hidden_field :role, value: 'standard' %>
-        <%= f.submit 'Downgrade',class: 'btn btn-danger' %>
-      <% end%>
-    <% else %>
-      <h3>Upgrade to premium</h3>
-      <div><%= link_to "Premium Plan",  new_charge_path , class: 'btn btn-primary'%></div>
     <% end %>
 
     <h3>Cancel my account</h3>

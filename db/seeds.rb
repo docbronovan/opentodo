@@ -33,7 +33,8 @@ users = User.all
 5.times do
  List.create!(
   title: Faker::Hacker.noun,
-  user_id: users.sample.id
+  user_id: users.sample.id,
+  permissions: ["private", "viewable", "open"].sample
  )
 end
 
@@ -44,7 +45,8 @@ lists = List.all
  Item.create!(
    name:  Faker::Commerce.product_name,
    user_id: users.sample.id,
-   list_id: lists.sample.id
+   list_id: lists.sample.id,
+   complete: [true, false].sample
  )
 end
 items = Item.all

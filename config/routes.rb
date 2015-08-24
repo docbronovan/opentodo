@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       resources :lists
     end
 
-    resources :lists, only: [] do
+    resources :lists do
       resources :items, only: [:create]
     end
 

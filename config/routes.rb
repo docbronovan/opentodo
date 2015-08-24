@@ -10,16 +10,12 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   namespace :api, defaults: { format: :json } do
-    resources :users do
-      resources :lists
+    resources :users 
+
+    resources :lists  do
+      resources :items, shallow: true
     end
 
-    resources :lists do
-      resources :items, only: [:create]
-    end
-
-    resources :items, only: [:destroy]
-    resources :lists, only: [:destroy]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -43,7 +43,7 @@ lists = List.all
 # Create items
 20.times do
  Item.create!(
-   name:  Faker::Commerce.product_name,
+   description:  Faker::Commerce.product_name,
    user_id: users.sample.id,
    list_id: lists.sample.id,
    complete: [true, false].sample

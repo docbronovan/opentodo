@@ -4,6 +4,6 @@ class ApiController < ApplicationController
   private
     def authenticated?
       authenticate_or_request_with_http_basic {|username, password| 
-        User.where( email: username) && User.find_by_email(username).valid_password?(password) }
+        (@current_user = User.find_by_email(username)) && User.find_by_email(username).valid_password?(password) }
     end
 end

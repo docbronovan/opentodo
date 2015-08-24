@@ -1,4 +1,4 @@
-class Api::UsersController < ApiController
+class Api::ItemssController < ApiController
   before_action :authenticated?
 
   def create

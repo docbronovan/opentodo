@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     end
 
     resources :items, only: [:destroy]
+    resources :lists, only: [:destroy]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
